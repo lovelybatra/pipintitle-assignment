@@ -1,0 +1,79 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header ">
+                <h4 class="card-title">Edit Book</h4>
+
+            </div>
+            <div class="card-body">
+
+                <form class="forms-sample"[formGroup]="bookForm">
+                    <div class="row mb-3">
+                        <div class="col-md-6 mb-2 p-1">
+                            <div class="form-group">
+                                <label for="bookName">Book Name</label>
+                                <input type="text" class="form-control" 
+                                id="bookName" formControlName="bookName"
+                                placeholder="Book Name" [class.is-invalid]="bookName?.invalid && bookName?.touched"
+                                [class.is-valid]="bookName?.valid && bookName?.touched">
+                            <div *ngIf="bookName?.invalid && bookName?.touched">
+                                <small class="text-danger" *ngIf="bookName.errors?.required">
+                                    Book Name is
+                                    Required</small>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6  mb-2 p-1">
+                            <div class="form-group">
+                                <label for="bookAuthor">Book Author</label>
+                                <input type="text" class="form-control" id="bookAuthor" formControlName="bookAuthor"
+                                placeholder="Book Author" [class.is-invalid]="bookAuthor?.invalid && bookAuthor?.touched"
+                                [class.is-valid]="bookAuthor?.valid && bookAuthor?.touched">
+                            <div *ngIf="bookAuthor?.invalid && bookAuthor?.touched">
+                                <small class="text-danger" *ngIf="bookAuthor.errors?.required">
+                                    Book Author  is
+                                    Required</small>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6  mb-2 p-1">
+                            <div class="form-group">
+                                <label for="price">Price</label>
+                                <input type="Number" [min]="1"  class="form-control" id="price" formControlName="price"
+                                placeholder="Price" [class.is-invalid]="price?.invalid && price?.touched"
+                                [class.is-valid]="price?.valid && price?.touched">
+                            <div *ngIf="price?.invalid && price?.touched">
+                                <small class="text-danger" *ngIf="price.errors?.required">
+                                    Price is
+                                    Required</small>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6  mb-2 p-1">
+                            <div class="form-group">
+                                <label for="totalQty">Total Qty</label>
+                                <input type="number" [min]="1" class="form-control" id="totalQty" formControlName="totalQty"
+                                placeholder="totalQty" [class.is-invalid]="totalQty?.invalid && totalQty?.touched"
+                                [class.is-valid]="totalQty?.valid && totalQty?.touched">
+                            <div *ngIf="totalQty?.invalid && totalQty?.touched">
+                                <small class="text-danger" *ngIf="totalQty.errors?.required">
+                                    Total Qty is
+                                    Required</small>
+                            </div>
+                            </div>
+                        </div>
+                      
+                    </div>
+
+
+                </form>
+
+
+            </div>
+            <div class="card-footer d-flex justify-content-between ">
+                <button type="submit" (click)="submitBook()" [disabled]="bookForm.invalid" class="btn btn-primary mr-2 ">Submit</button>
+                <button class="btn btn-light ml-3" (click)="goback()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

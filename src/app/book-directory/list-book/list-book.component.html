@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between ">
+                <div>
+                    <h4 class="card-title">Book Directory</h4>
+
+                </div>
+                <div>
+                    <button type="button" class="btn btn-secondary text-end" (click)="addNavigate()">Add Book
+                        Directory</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table align-middle text-nowrap">
+                        <thead>
+                            <tr>
+                                <th class="text-dark font-medium fs-4">Book Name</th>
+                                <th class="text-dark font-medium fs-4">Book Author</th>
+                                <th class="text-dark font-medium fs-4">Price</th>
+                                <th class="text-dark font-medium fs-4">Total Quality</th>
+                                <th class="text-dark font-medium fs-4"></th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="rows.length!=0">
+                            <tr *ngFor='let ts of rows'>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="assets/images/52132.jpg" alt="user" width="45">
+                                        <div class="ms-3">
+                                            <h5 class="mb-0 font-medium">{{ts.bookName}}</h5>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="fs-4">{{ts.bookAuthor}}</td>
+
+                                <td>
+                                    <h5 class="mb-0 fw-normal">{{ts.price}}</h5>
+                                </td>
+                                <td>
+                                    <h5 class="mb-0 fw-normal">{{ts.totalQty}}</h5>
+                                </td>
+                                
+                                <td>
+                                    <i class="bi bi-pencil-square text-success mr-2 pr-2" (click)="editHandle(ts)"></i>
+                                    <span style="margin-left:4px"></span>
+                                    <i class="bi bi-trash text-danger pl-3" (click)="deletebook(ts.book_id)"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody *ngIf="rows.length==0">
+                            <tr>
+                                <td colspan="5">NO Data Found</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
